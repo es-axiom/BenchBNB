@@ -21440,11 +21440,15 @@
 	
 	var _root_reducer2 = _interopRequireDefault(_root_reducer);
 	
+	var _root_middleware = __webpack_require__(190);
+	
+	var _root_middleware2 = _interopRequireDefault(_root_middleware);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var configureStore = function configureStore() {
 	  var preloadedState = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	  return (0, _redux.createStore)(_root_reducer2.default, preloadedState);
+	  return (0, _redux.createStore)(_root_reducer2.default, preloadedState, _root_middleware2.default);
 	};
 	
 	exports.default = configureStore;
@@ -22373,6 +22377,28 @@
 	    benches: benches
 	  };
 	};
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _redux = __webpack_require__(173);
+	
+	var _benches_middlware = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./benches_middlware\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _benches_middlware2 = _interopRequireDefault(_benches_middlware);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var RootMiddleware = (0, _redux.applyMiddleware)(_benches_middlware2.default);
+	
+	exports.default = RootMiddleware;
 
 /***/ }
 /******/ ]);
