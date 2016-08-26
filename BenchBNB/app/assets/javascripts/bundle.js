@@ -22334,19 +22334,23 @@
 
 /***/ },
 /* 188 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _bench_actions = __webpack_require__(189);
+	
 	var BenchesReducer = function BenchesReducer() {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	
+	    case _bench_actions.BenchConstants.RECEIVE_BENCHES:
+	      return action.benches;
 	    default:
 	      return state;
 	  }
@@ -22407,13 +22411,15 @@
 /* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
 	var _bench_actions = __webpack_require__(189);
+	
+	var _bench_api_util = __webpack_require__(192);
 	
 	var BenchesMiddleware = function BenchesMiddleware(_ref) {
 	  var getState = _ref.getState;
@@ -22422,8 +22428,11 @@
 	    return function (action) {
 	      switch (action.type) {
 	        case _bench_actions.BenchConstants.REQUEST_BENCHES:
-	          console.log("time to fetch!");
-	          return next(action);
+	          var success = function success(data) {
+	            return dispatch((0, _bench_actions.receiveBenches)(data));
+	          };
+	          (0, _bench_api_util.fetchBenches)(success);
+	          break;
 	        default:
 	          return next(action);
 	      }
