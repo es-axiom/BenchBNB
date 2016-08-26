@@ -8618,3 +8618,45 @@ Started GET "/api/benches" for 127.0.0.1 at 2016-08-26 16:48:26 -0700
 Processing by Api::BenchesController#index as JSON
   [1m[35mBench Load (0.4ms)[0m  SELECT "benches".* FROM "benches"
 Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendered static_pages/root.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 15ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/benches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/bundle.self-6871e1bbcece369d54b92b8f8e43384a794f19650daf764dea5af538af9e5190.js?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/benches.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2016-08-26 16:50:50 -0700
+
+
+Started GET "/api/benches" for 127.0.0.1 at 2016-08-26 16:50:52 -0700
+Processing by Api::BenchesController#index as JSON
+  [1m[36mBench Load (0.5ms)[0m  [1mSELECT "benches".* FROM "benches"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.5ms)
