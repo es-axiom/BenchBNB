@@ -58,10 +58,13 @@
 	
 	var _store2 = _interopRequireDefault(_store);
 	
+	var _bench_actions = __webpack_require__(189);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener("DOMContentLoaded", function () {
 	  window.store = (0, _store2.default)();
+	  window.requestBenches = _bench_actions.requestBenches;
 	  var root = document.getElementById("root");
 	  _reactDom2.default.render(_react2.default.createElement(
 	    'div',
@@ -22343,6 +22346,33 @@
 	};
 	
 	exports.default = BenchesReducer;
+
+/***/ },
+/* 189 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var BenchConstants = exports.BenchConstants = {
+	  RECEIVE_BENCHES: "RECEIVE_BENCHES",
+	  REQUEST_BENCHES: "REQUEST_BENCHES"
+	};
+	
+	var requestBenches = exports.requestBenches = function requestBenches() {
+	  return {
+	    type: "REQUEST_BENCHES"
+	  };
+	};
+	
+	var receiveBenches = exports.receiveBenches = function receiveBenches(benches) {
+	  return {
+	    type: "RECEIVE_BENCHES",
+	    benches: benches
+	  };
+	};
 
 /***/ }
 /******/ ]);
