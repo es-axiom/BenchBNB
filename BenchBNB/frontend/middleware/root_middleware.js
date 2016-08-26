@@ -1,5 +1,5 @@
 import { applyMiddleware } from 'redux';
-import BenchesMiddleware from './benches_middlware';
+import BenchesMiddleware from './benches_middleware';
 
 const RootMiddleware = applyMiddleware(
   BenchesMiddleware

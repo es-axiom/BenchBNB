@@ -60,11 +60,14 @@
 	
 	var _bench_actions = __webpack_require__(189);
 	
+	var _bench_api_util = __webpack_require__(192);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener("DOMContentLoaded", function () {
 	  window.store = (0, _store2.default)();
 	  window.requestBenches = _bench_actions.requestBenches;
+	  window.fetchBenches = _bench_api_util.fetchBenches;
 	  var root = document.getElementById("root");
 	  _reactDom2.default.render(_react2.default.createElement(
 	    'div',
@@ -22390,15 +22393,63 @@
 	
 	var _redux = __webpack_require__(173);
 	
-	var _benches_middlware = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./benches_middlware\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _benches_middleware = __webpack_require__(191);
 	
-	var _benches_middlware2 = _interopRequireDefault(_benches_middlware);
+	var _benches_middleware2 = _interopRequireDefault(_benches_middleware);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RootMiddleware = (0, _redux.applyMiddleware)(_benches_middlware2.default);
+	var RootMiddleware = (0, _redux.applyMiddleware)(_benches_middleware2.default);
 	
 	exports.default = RootMiddleware;
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _bench_actions = __webpack_require__(189);
+	
+	var BenchesMiddleware = function BenchesMiddleware(_ref) {
+	  var getState = _ref.getState;
+	  var dispatch = _ref.dispatch;
+	  return function (next) {
+	    return function (action) {
+	      switch (action.type) {
+	        case _bench_actions.BenchConstants.REQUEST_BENCHES:
+	          console.log("time to fetch!");
+	          return next(action);
+	        default:
+	          return next(action);
+	      }
+	    };
+	  };
+	};
+	
+	exports.default = BenchesMiddleware;
+
+/***/ },
+/* 192 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var fetchBenches = exports.fetchBenches = function fetchBenches(success, error) {
+	  $.ajax({
+	    type: 'GET',
+	    url: '/api/benches',
+	    success: success,
+	    error: error
+	  });
+	};
 
 /***/ }
 /******/ ]);
