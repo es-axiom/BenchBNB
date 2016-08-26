@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
-import { requestBenches } from './actions/bench_actions';
-import { fetchBenches } from './util/bench_api_util';
+import { Provider } from 'react-redux';
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.store = configureStore();
-  window.requestBenches = requestBenches;
-  window.fetchBenches = fetchBenches;
   const root = document.getElementById("root");
-  ReactDOM.render(<div>Hey There</div>, root)
+  const Root =
+    <root store={configureStore()}>
+      <Provider store={store}>
+        <BenchIndexContainer />
+      </Provider>
+    </root>
+  ReactDOM.render(<Root />, root)
 });
