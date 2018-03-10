@@ -1,6 +1,6 @@
-# BenchBNB
+## BenchBNB
 
-###Redux Practice
+### Redux Practice
 
 - Integrating Google Maps API into single-page application
 - Displaying `Benches` to rent around San Francisco, with info pages
@@ -8,7 +8,7 @@
 
 Setting up a Redux Router for organized navigation requires wrapping the app in a `Provider` component.
 
-```
+```javascript
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   const Store = configureStore();
